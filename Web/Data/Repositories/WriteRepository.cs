@@ -4,7 +4,8 @@ using Web.Data.Context;
 
 namespace Web.Data.Repositories;
 
-public class WriteRepository<TEntity>(AppDbContext context) : IWriteRepository<TEntity> where TEntity : BaseEntity
+public class WriteRepository<TEntity>(AppDbContext context)
+    : IWriteRepository<TEntity> where TEntity : BaseEntity
 {
     public async Task<TEntity> AddAsync(TEntity entity)
     {

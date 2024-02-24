@@ -1,3 +1,4 @@
+using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using Web.Common.Data.Abstract;
 using Web.Data.Context;
@@ -20,6 +21,16 @@ public static class ServiceCollectionExtension
 
         services.AddScoped(typeof(IReadRepository<>), typeof(ReadRepository<>));
         services.AddScoped(typeof(IWriteRepository<>), typeof(WriteRepository<>));
+
+        return services;
+    }
+
+    public static IServiceCollection AddMediator(this IServiceCollection services)
+    {
+        services.AddMediatR(opt =>
+        {
+            opt.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+        });
 
         return services;
     }

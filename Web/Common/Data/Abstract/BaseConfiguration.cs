@@ -4,7 +4,8 @@ using NUlid;
 
 namespace Web.Common.Data.Abstract;
 
-public abstract class BaseConfiguration<TEntity> : IEntityTypeConfiguration<TEntity> where TEntity : BaseEntity
+public abstract class BaseConfiguration<TEntity>
+    : IEntityTypeConfiguration<TEntity> where TEntity : BaseEntity
 {
     public void Configure(EntityTypeBuilder<TEntity> builder)
     {
